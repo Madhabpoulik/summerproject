@@ -1,0 +1,18 @@
+Sure.  Assuming you are using linux/osx, you should to:
+
+First) Compile the program, you can do it with 
+
+    $ make
+Second) Generate a problem, I recommend you to start by trying with a small problem, i.e. involving 15 agents. Problems involving > 20 agents require some time. You can do so issuing
+
+    $ ./DPIDP -n15 -wp15.txt
+
+Third) Solving the problem, you have different algorithms (-a1,-a2,-a3,-a4,-o<threads>), you can find descriptions here $./DPIPD  -h
+Some examples:
+
+    $ ./DPIDP -n15 -rp15.txt -a1  #Uses DP and banker's sequence using one thread (slowest)
+    $ ./DPIDP -n15 -rp15.txt -o0  #Uses fast split with max thread level parallelism, 0 stands for autodetecting max threads (fastest)
+
+(Extra comment) if you are only evaluating performance and don't care about the result, you can skip the second step and call directly $ ./DPIDP -n15 -g -o0,  this way the algorithm generates a random problem dynamically and solves it, without writing the problem to disk. 
+
+If you have any further doubt,  do not hesitate to ask. 
